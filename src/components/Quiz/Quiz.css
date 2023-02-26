@@ -1,0 +1,133 @@
+.quiz__inner {
+    margin-top: 10px;
+
+}
+
+.quiz__step-title-wrapper {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.quiz__step-title {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+}
+
+.quiz__step-page {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+}
+
+.quiz__step-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 7px;
+}
+
+.quiz__step-bottom {
+    width: 100%;
+    height: 4px;
+    border-radius: 20px;
+    background-color: #FFFFFF;
+}
+
+.quiz__step-bottom span {
+    display: block;
+    width: 40%;
+    height: 4px;
+    background-color: #5186EF;
+    border-radius: 20px;
+}
+
+.quiz__time-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.quiz__time {
+
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+
+    display: inline-flex;
+    padding: 38px;
+    border-radius: 50px;
+    border: 2px solid #5186EF;
+
+    margin: 28px 0;
+}
+
+.quiz__content {
+    margin-bottom: 11px;
+}
+.quiz__question {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 18px;
+
+    color: #D1D1D6;
+    margin-bottom: 5px;
+}
+.quiz__title {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+}
+
+.quiz__answers {
+
+}
+
+.quiz__answer-checker {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #212632;
+    border-radius: 50px;
+    margin-right: 15px;
+}
+
+.quiz__answer {
+    display: flex;
+    align-items: center;
+
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+
+    padding: 18px 15px;
+    border: 3px solid #212632;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.quiz__answer.right {
+    border: 3px solid #34B547;
+    background: #34B547;
+
+}
+
+.quiz__answer.right svg {
+    margin-right: 14px;
+}
+
+.quiz__answer.wrong {
+    border: 3px solid #E54D45;
+    background: #E54D45;
+}
+
+.quiz__answer.wrong svg {
+    margin-right: 7px;
+}

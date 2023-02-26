@@ -1,0 +1,10 @@
+.container {
+    width: 100%;
+    max-width: 568px;
+    padding: 0 20px;
+    margin: 0 auto;
+}
+
+.lightblue {
+    color: #5186EF;
+}
