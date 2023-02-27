@@ -41,7 +41,7 @@ const Study = ({ title, sort }) => {
                     {sortCategory === 0 &&
                         <div className="study__list">
 
-                            <div className="study__item">
+                            <Link to="/quiz" className="study__item">
                                 <div className="study__top">
                                     <img className="study__img" src="https://3.assets.klops.ru/media/W1siZiIsIjIwMTlcLzA1XC8xM1wvNmpidG0zbHdkcV9maWxlLnBuZyJdLFsicCIsInRodW1iIiwiMTA1M3g1OTIrMCsxMCJdLFsicCIsInRodW1iIiwiODYweDQ4NCMiXSxbInAiLCJlbmNvZGUiLCJqcGciLCItcXVhbGl0eSA4NSAtc3RyaXAgLWludGVybGFjZSBQbGFuZSJdXQ==?sha=c23081c0da29cfa9" alt="image"/>
                                     <div className="study__name">
@@ -60,7 +60,7 @@ const Study = ({ title, sort }) => {
                                         5 вопросов
                                     </div>
                                 </div>
-                            </div>
+                            </Link>
 
                             <Link to="/course" className="study__item">
                                 <div className="study__top">
@@ -83,34 +83,7 @@ const Study = ({ title, sort }) => {
                                 </div>
                             </Link>
 
-                            <div className="study__item">
-                                <div className="study__top">
-                                    <img className="study__img" src="https://oinfo.ru/img/2018/12/Il-ja-Varlamov.jpg" alt="image"/>
-                                    <div className="study__name">
-                                        Квиз
-                                    </div>
-                                    <div className="study__description">
-                                        Тест по английскому языку Present Simple Passive
-                                    </div>
-                                </div>
-                                <div className="study__bottom">
-                                    <div className="study__bottom-exp">
-                                        <span className="study__bottom-exp lightblue">+15</span>
-                                        XP
-                                    </div>
-                                    <div className="study__bottom-questions">
-                                        5 вопросов
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    }
-
-                    {sortCategory === 1 &&
-                        <div className="study__list">
-
-                            <div className="study__item">
+                            <Link to="/quiz" className="study__item">
                                 <div className="study__top">
                                     <img className="study__img" src="https://3.assets.klops.ru/media/W1siZiIsIjIwMTlcLzA1XC8xM1wvNmpidG0zbHdkcV9maWxlLnBuZyJdLFsicCIsInRodW1iIiwiMTA1M3g1OTIrMCsxMCJdLFsicCIsInRodW1iIiwiODYweDQ4NCMiXSxbInAiLCJlbmNvZGUiLCJqcGciLCItcXVhbGl0eSA4NSAtc3RyaXAgLWludGVybGFjZSBQbGFuZSJdXQ==?sha=c23081c0da29cfa9" alt="image"/>
                                     <div className="study__name">
@@ -129,11 +102,17 @@ const Study = ({ title, sort }) => {
                                         5 вопросов
                                     </div>
                                 </div>
-                            </div>
+                            </Link>
 
-                            <div className="study__item">
+                        </div>
+                    }
+
+                    {sortCategory === 1 &&
+                        <div className="study__list">
+
+                            <Link to="/quiz" className="study__item">
                                 <div className="study__top">
-                                    <img className="study__img" src="https://oinfo.ru/img/2018/12/Il-ja-Varlamov.jpg" alt="image"/>
+                                    <img className="study__img" src="https://3.assets.klops.ru/media/W1siZiIsIjIwMTlcLzA1XC8xM1wvNmpidG0zbHdkcV9maWxlLnBuZyJdLFsicCIsInRodW1iIiwiMTA1M3g1OTIrMCsxMCJdLFsicCIsInRodW1iIiwiODYweDQ4NCMiXSxbInAiLCJlbmNvZGUiLCJqcGciLCItcXVhbGl0eSA4NSAtc3RyaXAgLWludGVybGFjZSBQbGFuZSJdXQ==?sha=c23081c0da29cfa9" alt="image"/>
                                     <div className="study__name">
                                         Квиз
                                     </div>
@@ -150,7 +129,28 @@ const Study = ({ title, sort }) => {
                                         5 вопросов
                                     </div>
                                 </div>
-                            </div>
+                            </Link>
+
+                            <Link to="/quiz" className="study__item">
+                                <div className="study__top">
+                                    <img className="study__img" src="https://3.assets.klops.ru/media/W1siZiIsIjIwMTlcLzA1XC8xM1wvNmpidG0zbHdkcV9maWxlLnBuZyJdLFsicCIsInRodW1iIiwiMTA1M3g1OTIrMCsxMCJdLFsicCIsInRodW1iIiwiODYweDQ4NCMiXSxbInAiLCJlbmNvZGUiLCJqcGciLCItcXVhbGl0eSA4NSAtc3RyaXAgLWludGVybGFjZSBQbGFuZSJdXQ==?sha=c23081c0da29cfa9" alt="image"/>
+                                    <div className="study__name">
+                                        Квиз
+                                    </div>
+                                    <div className="study__description">
+                                        Тест по английскому языку Present Simple Passive
+                                    </div>
+                                </div>
+                                <div className="study__bottom">
+                                    <div className="study__bottom-exp">
+                                        <span className="study__bottom-exp lightblue">+15</span>
+                                        XP
+                                    </div>
+                                    <div className="study__bottom-questions">
+                                        5 вопросов
+                                    </div>
+                                </div>
+                            </Link>
 
                         </div>
                     }

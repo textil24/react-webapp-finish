@@ -20,6 +20,10 @@
 
     margin-bottom: 37px;
 }
+.quiz-result__status-circle.green {
+    background: #34B547;
+    border: 2px solid #34B547;
+}
 .quiz-result__status-title {
     font-style: normal;
     font-weight: 700;
@@ -83,6 +87,8 @@
     border-radius: 15px;
 
     padding: 22px 15px;
+    text-decoration: none;
+    color: white;
 
     font-style: normal;
     font-weight: 700;

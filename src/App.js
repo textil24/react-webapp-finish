@@ -8,6 +8,7 @@ import Header from "./components/Header/Header";
 import {Route, Routes} from "react-router-dom";
 import QuizAndCourse from "./pages/QuizAndCourse/QuizAndCourse";
 import Course from "./components/Course/Course";
+import Quiz from "./components/Quiz/Quiz";
 
 
 const tg = window.Telegram.WebApp
@@ -17,11 +18,6 @@ function App() {
     useEffect(() => {
         tg.ready()
     }, [])
-
-    const onClose = () => {
-        tg.close()
-    }
-
     return (
         <div className="App">
             <Header />
@@ -32,6 +28,7 @@ function App() {
                 <Route path="/quizzes" element={<QuizAndCourse title="Квизы от" sort={1}/>} />
                 <Route path="/courses" element={<QuizAndCourse title="Курсы от" sort={2}/>} />
                 <Route path="/course" element={<Course />} />
+                <Route path="/quiz" element={<Quiz />} />
                 <Route path="/leaderboards" element={<LeaderboardPage />} />
             </Routes>
 
