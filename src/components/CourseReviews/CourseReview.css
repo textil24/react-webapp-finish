@@ -2,11 +2,12 @@
     padding-bottom: 20px;
 }
 
-.course-reviews__item {
+.course-reviews__el {
     position: relative;
+    padding: 27px 0 15px;
 }
 
-.course-reviews__item::before {
+.course-reviews__el::before {
     content: "";
     position: absolute;
     left: 50%;
@@ -18,7 +19,7 @@
 }
 
 .course-reviews__item-inner {
-    padding: 27px 0 15px;
+
 }
 .course-reviews__item-top {
     display: flex;
@@ -38,4 +39,31 @@
     font-weight: 400;
     font-size: 12px;
     line-height: 15px;
+}
+
+.course-reviews__item-user {
+    display: flex;
+}
+.course-reviews__item-user-ava {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.course-reviews__item-user-content {
+    margin-left: 7px;
+}
+.course-reviews__item-user-name {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 17.7204px;
+    line-height: 21px;
+}
+.course-reviews__item-user-date {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 10.4711px;
+    line-height: 13px;
+
+    color: #D1D1D6;
 }

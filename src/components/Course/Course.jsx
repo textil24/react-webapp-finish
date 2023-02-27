@@ -3,6 +3,7 @@ import "./Course.css"
 import Channel from "../Channel/Channel";
 import CourseAbout from "../CourseAbout/CourseAbout";
 import CourseReviews from "../CourseReviews/CourseReviews";
+import CourseProgram from "../CourseProgram/CourseProgram";
 
 const Course = () => {
     return (
@@ -90,7 +91,8 @@ const Course = () => {
                 </div>
                 <div className="course__bottom-about-wrapper">
                     <div className="container">
-                        <CourseReviews />
+                        <CourseProgram />
+                        {/*<CourseReviews />*/}
                         {/*<CourseAbout />*/}
                     </div>
                 </div>
