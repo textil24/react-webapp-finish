@@ -1,0 +1,41 @@
+.course-reviews {
+    padding-bottom: 20px;
+}
+
+.course-reviews__item {
+    position: relative;
+}
+
+.course-reviews__item::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    height: 1px;
+    min-width: 100vh;
+    background-color: rgba(209, 209, 214, 0.2);
+}
+
+.course-reviews__item-inner {
+    padding: 27px 0 15px;
+}
+.course-reviews__item-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.course-reviews__item-user {
+
+}
+.course-reviews__item-stars {
+    display: flex;
+}
+.course-reviews__item-bottom {}
+.course-reviews__item-desc {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+}

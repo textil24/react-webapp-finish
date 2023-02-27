@@ -1,0 +1,150 @@
+.course__top {
+    margin: 13px 0 18px 0;
+}
+.course__top-title {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+
+    text-align: center;
+    width: 100%;
+    max-width: 287px;
+    margin: 0 auto;
+}
+.course__top-list {
+    display: flex;
+    justify-content: space-between;
+
+    width: 100%;
+    max-width: 205px;
+    margin: 18px auto;
+
+}
+.course__top-item {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 11px;
+    line-height: 13px;
+}
+.course__top-stars {}
+.course__top-button {
+    display: flex;
+    align-items: center;
+
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 22px;
+
+    background: #FFFFFF;
+    border-radius: 15px;
+    color: #000000;
+
+    width: 100%;
+    max-width: 200px;
+    margin: 0 auto;
+
+    padding: 15px 20px;
+    cursor: pointer;
+}
+
+
+
+.course__bottom {
+    background: #2D323D;
+    border-radius: 15px 15px;
+}
+
+.course__bottom-about-wrapper {
+    background: #212632;
+    border-radius: 0 0 15px 15px;
+}
+
+.course__bottom-pages {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0;
+
+}
+.course__bottom-page {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 18px;
+}
+
+.course__bottom-page.active {
+    position: relative;
+}
+
+.course__bottom-page.active:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+
+    height: 1px;
+    width: 100%;
+    background-color: #FFFFFF;
+}
+
+.course__bottom-about {
+
+}
+
+.course__bottom-about-subdesc {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+
+    padding: 20px 0;
+}
+
+.course__bottom-about-img-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.course__bottom-about-img {
+    width: 350px;
+    height: 192px;
+    border-radius: 15px;
+
+    margin: 20px 0;
+}
+
+.course__bottom-about-item {
+    margin-bottom: 20px;
+}
+
+.course__bottom-about-item:last-child {
+    margin-bottom: 0;
+    padding-bottom: 20px;
+}
+
+.course__bottom-about-title {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 18px;
+
+    margin-bottom: 7px;
+}
+
+.course__bottom-about-desc {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+}
+
+.course__bottom-about-li {
+    display: flex;
+    align-items: center;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+}
