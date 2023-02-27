@@ -6,7 +6,6 @@ import About from "../../components/About/About";
 const HomePage = () => {
     return (
         <>
-            <Header />
             <About />
             {/*<Study />*/}
         </>

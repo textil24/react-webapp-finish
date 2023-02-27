@@ -1,9 +1,10 @@
 import React, {useState} from 'react';
 import "./Header.css"
+import {Link} from "react-router-dom";
 
 const Header = () => {
 
-    const [activeBurger, setActiveBurger] = useState(true)
+    const [activeBurger, setActiveBurger] = useState(false)
 
     return (
         <header className="header">
@@ -18,20 +19,32 @@ const Header = () => {
                         </div>
                     </div>
 
-                    <div className="header__logo">
+                    <Link
+                        to="/domi"
+                        onClick={() => setActiveBurger(false)}
+                        className="header__logo">
                         🚀 Domi
-                    </div>
+                    </Link>
 
                     <div className={activeBurger ? "header__menu active" : "header__menu"}>
-                        <div className="header__menu-item">
+                        <Link
+                            to="/courses"
+                            onClick={() => setActiveBurger(false)}
+                            className="header__menu-item">
                             🏆 Курсы
-                        </div>
-                        <div className="header__menu-item">
+                        </Link>
+                        <Link
+                            to="/quizzes"
+                            onClick={() => setActiveBurger(false)}
+                            className="header__menu-item">
                             🧩 Квизы
-                        </div>
-                        <div className="header__menu-item">
+                        </Link>
+                        <Link
+                            to="/leaderboards"
+                            onClick={() => setActiveBurger(false)}
+                            className="header__menu-item">
                             🏆 Лидерборд
-                        </div>
+                        </Link>
                         <div className="header__menu-item">
                             👤 Профиль | 100 XP️
                         </div>

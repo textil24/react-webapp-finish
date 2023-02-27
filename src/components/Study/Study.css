@@ -41,6 +41,9 @@
 }
 
 .study__item {
+    display: block;
+    text-decoration: none;
+    color: #FFFFFF;
     background: #212632;
     border-radius: 15px;
     margin-bottom: 12px;

@@ -1,10 +1,10 @@
 import React from 'react';
 import "./Channel.css"
 
-const Channel = () => {
+const Channel = ({remove}) => {
     return (
         <div className="channel">
-            <div className="container">
+            <div className={`container ${remove}`}>
                 <div className="channel__inner">
 
                     <div className="channel__item">

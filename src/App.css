@@ -5,6 +5,10 @@
     margin: 0 auto;
 }
 
+.container.remove {
+    padding: 0;
+}
+
 .lightblue {
     color: #5186EF;
 }

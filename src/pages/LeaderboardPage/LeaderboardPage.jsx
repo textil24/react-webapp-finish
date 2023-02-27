@@ -6,7 +6,6 @@ import Leaderboard from "../../components/Leaderboard/Leaderboard";
 const LeaderboardPage = () => {
     return (
         <>
-            <Header />
             <Channel />
             <Leaderboard />
         </>
