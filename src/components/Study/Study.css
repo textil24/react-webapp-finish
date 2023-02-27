@@ -9,6 +9,11 @@
     margin-bottom: 13px;
 }
 
+.study__title-img {
+    width: 40px;
+    margin-right: 10px;
+}
+
 .study__categories {
     display: flex;
     margin: 20px 0;
@@ -112,7 +117,7 @@
 }
 
 
-.study__bottom-questions {
+.study__bottom-content {
     /*font-family: 'Inter';*/
     font-style: normal;
     font-weight: 700;

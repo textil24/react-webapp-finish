@@ -35,13 +35,13 @@ const Header = () => {
                     {/* Burger Menu */}
                     <div className={activeBurger ? "header__menu active" : "header__menu"}>
                         <Link
-                            to="/courses"
+                            to="/2"
                             onClick={() => setActiveBurger(false)}
                             className="header__menu-item">
                             🏆 Курсы
                         </Link>
                         <Link
-                            to="/quizzes"
+                            to="/1"
                             onClick={() => setActiveBurger(false)}
                             className="header__menu-item">
                             🧩 Квизы

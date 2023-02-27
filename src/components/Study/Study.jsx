@@ -1,20 +1,80 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import Channel from "../Channel/Channel";
 
 import "./Study.css"
 import {Link} from "react-router-dom";
 import ButtonCategory from "../../UI/ButtonCategory/ButtonCategory";
 
-const buttons = [
-    "Все",
-    "Квизы",
-    "Курсы"
+import puzzle from "../../assets/puzzle.png"
+
+const cards = [
+    {
+        to: "/quiz",
+        scr: "https://oinfo.ru/img/2018/12/Il-ja-Varlamov.jpg",
+        type: "Квизы",
+        name: "Квиз",
+        description: "Тест по английскому языку Present Simple Passive",
+        exp: "+15",
+        content: "5 вопросов"
+    },
+    {
+        to: "/course",
+        scr: "https://oinfo.ru/img/2018/12/Il-ja-Varlamov.jpg",
+        type: "Курсы",
+        name: "Курс",
+        description: "Тест по английскому языку Present Simple Passive",
+        exp: "+1500",
+        content: "399 $"
+    },
+    {
+        to: "/quiz",
+        scr: "https://oinfo.ru/img/2018/12/Il-ja-Varlamov.jpg",
+        type: "Квизы",
+        name: "Квиз",
+        description: "Тест по английскому языку Present Simple Passive",
+        exp: "+15",
+        content: "5 вопросов"
+    },
 ]
 
-const Study = ({ title, sort }) => {
+const buttons = [
+    {
+        title: "Квизы и курсы от",
+        name: "Все"
+    },
+    {
+        title: "Квизы от",
+        name: "Квизы"
+    },
+    {
+        title: "Курсы от",
+        name: "Курсы"
+    },
+]
 
+const Study = ({ title, sort, category }) => {
+
+    const [titleCurrent, setTitleCurrent] = useState()
     const [clickButton, setClickButton] = useState(0)
-    const [sortCategory, setSortCategory] = useState(sort)
+    const [cardsCurrent, setCardsCurrent] = useState(cards)
+
+    const onClickCategory = (index, category, categoryTitle) => {
+        setClickButton(index)
+        setTitleCurrent(categoryTitle)
+        if (category.toLowerCase() !== "все") {
+            const newCards = cards.filter(card => card.type.toLowerCase() === category.toLowerCase())
+            setCardsCurrent(newCards)
+        } else {
+            setCardsCurrent(cards)
+        }
+    }
+
+    useEffect(() => {
+        onClickCategory(sort, category)
+        setTitleCurrent(title)
+        console.log("Отработал!")
+    }, [sort, category])
+
 
     return (
         <div className="study">
@@ -22,7 +82,11 @@ const Study = ({ title, sort }) => {
                 <div className="study__inner">
 
                     <div className="study__title">
-                        🧩 {title}
+                        <img
+                            className="study__title-img"
+                            src={puzzle}
+                            alt="image"/>
+                        {titleCurrent}
                     </div>
 
                     <Channel remove={'remove'} />
@@ -30,156 +94,46 @@ const Study = ({ title, sort }) => {
                     <div className="study__categories">
                         {buttons.map((btn, index) =>
                             <ButtonCategory
-                                onClick={() => setClickButton(index)}
+                                key={index}
+                                onClick={() => onClickCategory(index, btn.name, btn.title)}
                                 active={clickButton === index ? "active" : ""}>
-                                {btn}
+                                {btn.name}
                             </ButtonCategory>
                         )}
                     </div>
 
-                    {sortCategory === 0 &&
-                        <div className="study__list">
+                    <div className="study__list">
 
-                            <Link to="/quiz" className="study__item">
+                        {cardsCurrent.map((card, index) =>
+
+                            <Link key={index} to={card.to} className="study__item">
                                 <div className="study__top">
-                                    <img className="study__img" src="https://3.assets.klops.ru/media/W1siZiIsIjIwMTlcLzA1XC8xM1wvNmpidG0zbHdkcV9maWxlLnBuZyJdLFsicCIsInRodW1iIiwiMTA1M3g1OTIrMCsxMCJdLFsicCIsInRodW1iIiwiODYweDQ4NCMiXSxbInAiLCJlbmNvZGUiLCJqcGciLCItcXVhbGl0eSA4NSAtc3RyaXAgLWludGVybGFjZSBQbGFuZSJdXQ==?sha=c23081c0da29cfa9" alt="image"/>
+                                    <img className="study__img"
+                                         src={card.scr}
+                                         alt="image"/>
                                     <div className="study__name">
-                                        Квиз
+                                        {card.name}
                                     </div>
                                     <div className="study__description">
-                                        Тест по английскому языку Present Simple Passive
+                                        {card.description}
                                     </div>
                                 </div>
                                 <div className="study__bottom">
                                     <div className="study__bottom-exp">
-                                        <span className="study__bottom-exp lightblue">+15</span>
+                                        <span className="study__bottom-exp lightblue">{card.exp}</span>
                                         XP
                                     </div>
-                                    <div className="study__bottom-questions">
-                                        5 вопросов
+                                    <div className="study__bottom-content">
+                                        {card.content}
                                     </div>
                                 </div>
                             </Link>
 
-                            <Link to="/course" className="study__item">
-                                <div className="study__top">
-                                    <img className="study__img" src="https://oinfo.ru/img/2018/12/Il-ja-Varlamov.jpg" alt="image"/>
-                                    <div className="study__name">
-                                        Курс
-                                    </div>
-                                    <div className="study__description">
-                                        Тест по английскому языку Present Simple Passive
-                                    </div>
-                                </div>
-                                <div className="study__bottom">
-                                    <div className="study__bottom-exp">
-                                        <span className="study__bottom-exp lightblue">+1500</span>
-                                        XP
-                                    </div>
-                                    <div className="study__bottom-questions">
-                                        399 $
-                                    </div>
-                                </div>
-                            </Link>
+                        )}
 
-                            <Link to="/quiz" className="study__item">
-                                <div className="study__top">
-                                    <img className="study__img" src="https://3.assets.klops.ru/media/W1siZiIsIjIwMTlcLzA1XC8xM1wvNmpidG0zbHdkcV9maWxlLnBuZyJdLFsicCIsInRodW1iIiwiMTA1M3g1OTIrMCsxMCJdLFsicCIsInRodW1iIiwiODYweDQ4NCMiXSxbInAiLCJlbmNvZGUiLCJqcGciLCItcXVhbGl0eSA4NSAtc3RyaXAgLWludGVybGFjZSBQbGFuZSJdXQ==?sha=c23081c0da29cfa9" alt="image"/>
-                                    <div className="study__name">
-                                        Квиз
-                                    </div>
-                                    <div className="study__description">
-                                        Тест по английскому языку Present Simple Passive
-                                    </div>
-                                </div>
-                                <div className="study__bottom">
-                                    <div className="study__bottom-exp">
-                                        <span className="study__bottom-exp lightblue">+15</span>
-                                        XP
-                                    </div>
-                                    <div className="study__bottom-questions">
-                                        5 вопросов
-                                    </div>
-                                </div>
-                            </Link>
 
-                        </div>
-                    }
 
-                    {sortCategory === 1 &&
-                        <div className="study__list">
-
-                            <Link to="/quiz" className="study__item">
-                                <div className="study__top">
-                                    <img className="study__img" src="https://3.assets.klops.ru/media/W1siZiIsIjIwMTlcLzA1XC8xM1wvNmpidG0zbHdkcV9maWxlLnBuZyJdLFsicCIsInRodW1iIiwiMTA1M3g1OTIrMCsxMCJdLFsicCIsInRodW1iIiwiODYweDQ4NCMiXSxbInAiLCJlbmNvZGUiLCJqcGciLCItcXVhbGl0eSA4NSAtc3RyaXAgLWludGVybGFjZSBQbGFuZSJdXQ==?sha=c23081c0da29cfa9" alt="image"/>
-                                    <div className="study__name">
-                                        Квиз
-                                    </div>
-                                    <div className="study__description">
-                                        Тест по английскому языку Present Simple Passive
-                                    </div>
-                                </div>
-                                <div className="study__bottom">
-                                    <div className="study__bottom-exp">
-                                        <span className="study__bottom-exp lightblue">+15</span>
-                                        XP
-                                    </div>
-                                    <div className="study__bottom-questions">
-                                        5 вопросов
-                                    </div>
-                                </div>
-                            </Link>
-
-                            <Link to="/quiz" className="study__item">
-                                <div className="study__top">
-                                    <img className="study__img" src="https://3.assets.klops.ru/media/W1siZiIsIjIwMTlcLzA1XC8xM1wvNmpidG0zbHdkcV9maWxlLnBuZyJdLFsicCIsInRodW1iIiwiMTA1M3g1OTIrMCsxMCJdLFsicCIsInRodW1iIiwiODYweDQ4NCMiXSxbInAiLCJlbmNvZGUiLCJqcGciLCItcXVhbGl0eSA4NSAtc3RyaXAgLWludGVybGFjZSBQbGFuZSJdXQ==?sha=c23081c0da29cfa9" alt="image"/>
-                                    <div className="study__name">
-                                        Квиз
-                                    </div>
-                                    <div className="study__description">
-                                        Тест по английскому языку Present Simple Passive
-                                    </div>
-                                </div>
-                                <div className="study__bottom">
-                                    <div className="study__bottom-exp">
-                                        <span className="study__bottom-exp lightblue">+15</span>
-                                        XP
-                                    </div>
-                                    <div className="study__bottom-questions">
-                                        5 вопросов
-                                    </div>
-                                </div>
-                            </Link>
-
-                        </div>
-                    }
-
-                    {sortCategory === 2 &&
-                        <div className="study__list">
-
-                            <Link to="/course" className="study__item">
-                                <div className="study__top">
-                                    <img className="study__img" src="https://oinfo.ru/img/2018/12/Il-ja-Varlamov.jpg" alt="image"/>
-                                    <div className="study__name">
-                                        Курс
-                                    </div>
-                                    <div className="study__description">
-                                        Тест по английскому языку Present Simple Passive
-                                    </div>
-                                </div>
-                                <div className="study__bottom">
-                                    <div className="study__bottom-exp">
-                                        <span className="study__bottom-exp lightblue">+1500</span>
-                                        XP
-                                    </div>
-                                    <div className="study__bottom-questions">
-                                        399 $
-                                    </div>
-                                </div>
-                            </Link>
-
-                        </div>
-                    }
+                    </div>
 
                 </div>
             </div>

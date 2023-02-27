@@ -23,10 +23,28 @@ function App() {
             <Header />
 
             <Routes>
-                <Route path="/" element={<QuizAndCourse title="Квизы и курсы от" sort={0} />} />
+                <Route path="/" element={
+                    <QuizAndCourse
+                        title="Квизы и курсы от"
+                        sort={0}
+                        category="Все"
+                    />
+                } />
+                <Route path="/1" element={
+                    <QuizAndCourse
+                        title="Квизы от"
+                        sort={1}
+                        category="Квизы"
+                    />
+                } />
+                <Route path="/2" element={
+                    <QuizAndCourse
+                        title="Курсы от"
+                        sort={2}
+                        category="Курсы"
+                    />
+                } />
                 <Route path="/domi" element={<HomePage />} />
-                <Route path="/quizzes" element={<QuizAndCourse title="Квизы от" sort={1}/>} />
-                <Route path="/courses" element={<QuizAndCourse title="Курсы от" sort={2}/>} />
                 <Route path="/course" element={<Course />} />
                 <Route path="/quiz" element={<Quiz />} />
                 <Route path="/leaderboards" element={<LeaderboardPage />} />
