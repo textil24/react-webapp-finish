@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import "./Header.css"
 import {Link} from "react-router-dom";
+import logo from "../../assets/logo.png"
 
 const Header = () => {
 
@@ -11,6 +12,7 @@ const Header = () => {
             <div className="container">
                 <div className="header__inner">
 
+                    {/* Burger */}
                     <div className="header__burger-wrapper">
                         <div
                             onClick={() => setActiveBurger(!activeBurger)}
@@ -18,14 +20,19 @@ const Header = () => {
                             <span></span>
                         </div>
                     </div>
+                    {/* End Burger */}
 
+                    {/* Logo */}
                     <Link
                         to="/domi"
                         onClick={() => setActiveBurger(false)}
                         className="header__logo">
-                        🚀 Domi
+                        <img className="header__img" src={logo} alt="logo"/>
+                        Domi
                     </Link>
+                    {/* End Logo */}
 
+                    {/* Burger Menu */}
                     <div className={activeBurger ? "header__menu active" : "header__menu"}>
                         <Link
                             to="/courses"
@@ -49,6 +56,7 @@ const Header = () => {
                             👤 Профиль | 100 XP️
                         </div>
                     </div>
+                    {/* End Burger Menu */}
 
                 </div>
             </div>

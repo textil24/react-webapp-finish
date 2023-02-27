@@ -9,7 +9,8 @@ const Channel = ({remove}) => {
 
                     <div className="channel__item">
 
-                        <img className="channel__img" src="https://www.kindpng.com/picc/m/134-1343439_hands-banking-bag-money-comments-white-money-bag.png" alt="img"/>
+                        <img className="channel__img"
+                             src="https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/fragment-of-colorized-one-hundred-u-s-dollar-bill-100-u-s-d-pop-art-serge-averbukh.jpg" alt="img"/>
 
                         <div className="channel__content">
                             <div className="channel__title">

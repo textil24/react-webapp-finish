@@ -5,8 +5,20 @@
     line-height: 24px;
     padding: 16px 0 22px 0;
 
-    border-bottom: 1px solid rgba(209, 209, 214, 0.2);
+    position: relative;
 }
+
+.about__title::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    height: 1px;
+    min-width: 100vh;
+    background-color: rgba(209, 209, 214, 0.2);
+}
+
 .about__user {
     margin: 14px 0 22px 0;
 }
@@ -104,4 +116,9 @@
     font-weight: 700;
     font-size: 17px;
     line-height: 21px;
+}
+
+.about__img-logo {
+    width: 20px;
+    margin-right: 5px;
 }

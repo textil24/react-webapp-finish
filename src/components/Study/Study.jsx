@@ -3,10 +3,17 @@ import Channel from "../Channel/Channel";
 
 import "./Study.css"
 import {Link} from "react-router-dom";
+import ButtonCategory from "../../UI/ButtonCategory/ButtonCategory";
+
+const buttons = [
+    "Все",
+    "Квизы",
+    "Курсы"
+]
 
 const Study = ({ title, sort }) => {
-    console.log(sort)
 
+    const [clickButton, setClickButton] = useState(0)
     const [sortCategory, setSortCategory] = useState(sort)
 
     return (
@@ -21,21 +28,13 @@ const Study = ({ title, sort }) => {
                     <Channel remove={'remove'} />
 
                     <div className="study__categories">
-                        <div
-                            onClick={() => setSortCategory(0)}
-                            className={sortCategory === 0 ? "study__category active" : "study__category"}>
-                            Все
-                        </div>
-                        <div
-                            onClick={() => setSortCategory(1)}
-                            className={sortCategory === 1 ? "study__category active" : "study__category"}>
-                            Квизы
-                        </div>
-                        <div
-                            onClick={() => setSortCategory(2)}
-                            className={sortCategory === 2 ? "study__category active" : "study__category"}>
-                            Курсы
-                        </div>
+                        {buttons.map((btn, index) =>
+                            <ButtonCategory
+                                onClick={() => setClickButton(index)}
+                                active={clickButton === index ? "active" : ""}>
+                                {btn}
+                            </ButtonCategory>
+                        )}
                     </div>
 
                     {sortCategory === 0 &&

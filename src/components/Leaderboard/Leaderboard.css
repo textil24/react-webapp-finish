@@ -3,6 +3,9 @@
 }
 
 .leaderboard__title {
+    display: flex;
+    align-items: center;
+
     /*font-family: 'Inter';*/
     font-style: normal;
     font-weight: 700;
@@ -14,7 +17,7 @@
 
 .leaderboard__date-list {
     display: flex;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
 }
 
 .leaderboard__date-item {
@@ -63,14 +66,25 @@
 
     width: 3px;
     height: 70%;
+    border-radius: 20px;
     background-color: #FFFFFF;
 }
 
 .leaderboard__user {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    /*display: flex;*/
+    /*justify-content: space-between;*/
+    /*align-items: center;*/
+
+    display: grid;
+    /*grid-template-columns: .1fr .6fr .2fr;*/
+    grid-template-columns: 1fr 7fr 1fr;
+    grid-template-rows: 1fr;
+
     margin-bottom: 4px;
+}
+
+.leaderboard__img {
+    width: 36px;
 }
 
 .leaderboard__place {
@@ -78,6 +92,7 @@
     font-weight: 700;
     font-size: 20px;
     line-height: 24px;
+    text-align: center;
 }
 
 .leaderboard__name {
@@ -86,10 +101,13 @@
     font-weight: 700;
     font-size: 20px;
     line-height: 24px;
+    text-align: left;
+    padding: 0 20px;
 }
 
 .leaderboard__exp {
     display: flex;
+    justify-content: space-between;
     align-items: center;
 
     font-style: normal;
@@ -102,7 +120,7 @@
 
 .leaderboard__exp-number {
     /*font-family: 'Inter';*/
-    flex: auto;
+    text-align: left;
     color: #5186EF;
 }
 

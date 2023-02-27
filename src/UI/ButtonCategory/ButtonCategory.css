@@ -1,0 +1,40 @@
+.button-category {
+    display: block;
+
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 18px;
+    cursor: pointer;
+    color: #FFFFFF;
+
+    background-color: transparent;
+    border: none;
+
+    margin-right: 8px;
+}
+
+.button-category.active {
+    position: relative;
+}
+
+.button-category:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+
+    width: 0;
+    background-color: #FFFFFF;
+    transition: all .5s ease;
+}
+
+.button-category.active:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+
+    height: 1px;
+    width: 100%;
+    background-color: #FFFFFF;
+}

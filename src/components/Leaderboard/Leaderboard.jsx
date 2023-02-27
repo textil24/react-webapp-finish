@@ -1,187 +1,128 @@
-import React from 'react';
+import React, {useState} from 'react';
 import "./Leaderboard.css"
 
+import cup from "../../assets/сup.webp"
+import ButtonCategory from "../../UI/ButtonCategory/ButtonCategory";
+
+const users = [
+    {
+        id: 1,
+        place: "🥇",
+        name: "@ilyachapyshev",
+        number: "23941",
+    },
+    {
+        id: 2,
+        place: "🥈",
+        name: "@ilyachapyshe",
+        number: "5394",
+    },
+    {
+        id: 3,
+        place: "🥉",
+        name: "@ilyachapysh",
+        number: "3239",
+    },
+    {
+        id: 4,
+        place: "4",
+        name: "@ilyachapys",
+        number: "2494",
+    },
+    {
+        id: 5,
+        place: "5",
+        name: "@ilyachapy",
+        number: "1231",
+    },
+    {
+        id: 6,
+        place: "6",
+        name: "@ilyachap",
+        number: "931",
+    },
+    {
+        id: 7,
+        place: "7",
+        name: "@ilyacha",
+        number: "872",
+    },
+    {
+        id: 8,
+        place: "8",
+        name: "@ilyac",
+        number: "840",
+    },
+    {
+        id: 9,
+        place: "9",
+        name: "@ilya",
+        number: "754",
+    },
+    {
+        id: 10,
+        place: "10",
+        name: "@ily",
+        number: "666",
+    },
+]
+
+const buttons = [
+    "Неделя",
+    "Месяц"
+]
+
 const Leaderboard = () => {
+
+    const [clickButton, setClickButton] = useState(0)
+
     return (
         <div className="leaderboard">
             <div className="container">
                 <div className="leaderboard__inner">
 
-                  <div className="leaderboard__item">
-                      <div className="leaderboard__title">
-                          🏆 Лидерборд
-                      </div>
-                      <div className="leaderboard__date-list">
-                          <div className="leaderboard__date-item active">
-                              Неделя
-                          </div>
-                          <div className="leaderboard__date-item">
-                              Месяц
-                          </div>
-                      </div>
-                      <div className="leaderboard__users">
-                          <div className="leaderboard__user">
-                              <div className="leaderboard__place">
-                                  🥇
-                              </div>
-                              <div className="leaderboard__name">
-                                  @ilyachapyshev
-                              </div>
-                              <div className="leaderboard__exp">
-                                  <div className="leaderboard__exp-number">
-                                      23941
-                                  </div>
-                                  <div className="leaderboard__exp-name">
-                                      XP
-                                  </div>
-                              </div>
-                          </div>
-                          <div className="leaderboard__user">
-                              <div className="leaderboard__place">
-                                  🥈
-                              </div>
-                              <div className="leaderboard__name">
-                                  @ilyachapyshev
-                              </div>
-                              <div className="leaderboard__exp">
-                                  <div className="leaderboard__exp-number">
-                                      23941
-                                  </div>
-                                  <div className="leaderboard__exp-name">
-                                      XP
-                                  </div>
-                              </div>
-                          </div>
-                          <div className="leaderboard__user">
-                              <div className="leaderboard__place">
-                                  🥉
-                              </div>
-                              <div className="leaderboard__name">
-                                  @ilyachapyshev
-                              </div>
-                              <div className="leaderboard__exp">
-                                  <div className="leaderboard__exp-number">
-                                      23941
-                                  </div>
-                                  <div className="leaderboard__exp-name">
-                                      XP
-                                  </div>
-                              </div>
-                          </div>
-                          <div className="leaderboard__user">
-                              <div className="leaderboard__place">
-                                  4
-                              </div>
-                              <div className="leaderboard__name">
-                                  @ilyachapyshev
-                              </div>
-                              <div className="leaderboard__exp">
-                                  <div className="leaderboard__exp-number">
-                                      23941
-                                  </div>
-                                  <div className="leaderboard__exp-name">
-                                      XP
-                                  </div>
-                              </div>
-                          </div>
-                          <div className="leaderboard__user">
-                              <div className="leaderboard__place">
-                                  5
-                              </div>
-                              <div className="leaderboard__name">
-                                  @ilyachapyshev
-                              </div>
-                              <div className="leaderboard__exp">
-                                  <div className="leaderboard__exp-number">
-                                      23941
-                                  </div>
-                                  <div className="leaderboard__exp-name">
-                                      XP
-                                  </div>
-                              </div>
-                          </div>
-                          <div className="leaderboard__user">
-                              <div className="leaderboard__place">
-                                  6
-                              </div>
-                              <div className="leaderboard__name">
-                                  @ilyachapyshev
-                              </div>
-                              <div className="leaderboard__exp">
-                                  <div className="leaderboard__exp-number">
-                                      23941
-                                  </div>
-                                  <div className="leaderboard__exp-name">
-                                      XP
-                                  </div>
-                              </div>
-                          </div>
-                          <div className="leaderboard__user">
-                              <div className="leaderboard__place">
-                                  7
-                              </div>
-                              <div className="leaderboard__name">
-                                  @ilyachapyshev
-                              </div>
-                              <div className="leaderboard__exp">
-                                  <div className="leaderboard__exp-number">
-                                      23941
-                                  </div>
-                                  <div className="leaderboard__exp-name">
-                                      XP
-                                  </div>
-                              </div>
-                          </div>
-                          <div className="leaderboard__user">
-                              <div className="leaderboard__place">
-                                  8
-                              </div>
-                              <div className="leaderboard__name">
-                                  @ilyachapyshev
-                              </div>
-                              <div className="leaderboard__exp">
-                                  <div className="leaderboard__exp-number">
-                                      23941
-                                  </div>
-                                  <div className="leaderboard__exp-name">
-                                      XP
-                                  </div>
-                              </div>
-                          </div>
-                          <div className="leaderboard__user">
-                              <div className="leaderboard__place">
-                                  9
-                              </div>
-                              <div className="leaderboard__name">
-                                  @ilyachapyshev
-                              </div>
-                              <div className="leaderboard__exp">
-                                  <div className="leaderboard__exp-number">
-                                      23941
-                                  </div>
-                                  <div className="leaderboard__exp-name">
-                                      XP
-                                  </div>
-                              </div>
-                          </div>
-                          <div className="leaderboard__user">
-                              <div className="leaderboard__place">
-                                  10
-                              </div>
-                              <div className="leaderboard__name">
-                                  @ilyachapyshev
-                              </div>
-                              <div className="leaderboard__exp">
-                                  <div className="leaderboard__exp-number">
-                                      23941
-                                  </div>
-                                  <div className="leaderboard__exp-name">
-                                      XP
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
+                    <div className="leaderboard__item">
+                        <div className="leaderboard__title">
+                            <img
+                                className="leaderboard__img"
+                                src={cup}
+                                alt="img"
+                            />
+                            Лидерборд
+                        </div>
+                        <div className="leaderboard__date-list">
+                            {buttons.map((btn, index) =>
+                                <ButtonCategory
+                                    onClick={() => setClickButton(index)}
+                                    active={clickButton === index ? "active" : ""}>
+                                    {btn}
+                                </ButtonCategory>
+                            )}
+                        </div>
+
+                        <div className="leaderboard__users">
+
+                            {users.map(user =>
+                                <div key={user.id} className="leaderboard__user">
+                                    <div className="leaderboard__place">
+                                        {user.place}
+                                    </div>
+                                    <div className="leaderboard__name">
+                                        {user.name}
+                                    </div>
+                                    <div className="leaderboard__exp">
+                                        <div className="leaderboard__exp-number">
+                                            {user.number}
+                                        </div>
+                                        <div className="leaderboard__exp-name">
+                                            XP
+                                        </div>
+                                    </div>
+                                </div>
+                            )}
+
+                        </div>
+                    </div>
 
                 </div>
             </div>

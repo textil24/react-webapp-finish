@@ -1,12 +1,11 @@
 import React from 'react';
-import Header from "../../components/Header/Header";
-import Study from "../../components/Study/Study";
-import About from "../../components/About/About";
+import Domi from "../../components/Domi/Domi";
+
 
 const HomePage = () => {
     return (
         <>
-            <About />
+            <Domi />
             {/*<Study />*/}
         </>
     );

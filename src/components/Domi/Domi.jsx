@@ -1,14 +1,20 @@
 import React from 'react';
-import "./About.css"
+import "./Domi.css"
 
-const About = () => {
+import logo from  "../../assets/logo.png"
+
+const Domi = () => {
     return (
         <div className="about">
             <div className="container">
                 <div className="about__inner">
 
                     <div className="about__title">
-                        🚀 Domi – платформа для интерактивного взаимодействия
+                        <img
+                            className="about__img-logo"
+                            src={logo}
+                            alt="image"/>
+                        Domi – платформа для интерактивного взаимодействия
                     </div>
 
                     <div className="about__user">
@@ -78,4 +84,4 @@ const About = () => {
     );
 };
 
-export default About;
+export default Domi;
