@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import "./Course.css"
 import Channel from "../Channel/Channel";
 import CourseAbout from "../CourseAbout/CourseAbout";
@@ -6,6 +6,9 @@ import CourseReviews from "../CourseReviews/CourseReviews";
 import CourseProgram from "../CourseProgram/CourseProgram";
 
 const Course = () => {
+
+    const [coursePage, setCoursePage] = useState(0)
+
     return (
         <div className="course">
             <div className="container">
@@ -78,22 +81,34 @@ const Course = () => {
             <div className="course__bottom">
                 <div className="container">
                     <div className="course__bottom-pages">
-                        <div className="course__bottom-page active">
+                        <div
+                            onClick={() => setCoursePage(0)}
+                            className={coursePage === 0 ? "course__bottom-page active" : "course__bottom-page"}>
                             О курсе
                         </div>
-                        <div className="course__bottom-page">
+                        <div
+                            onClick={() => setCoursePage(1)}
+                            className={coursePage === 1 ? "course__bottom-page active" : "course__bottom-page"}>
                             Отзывы
                         </div>
-                        <div className="course__bottom-page">
+                        <div
+                            onClick={() => setCoursePage(2)}
+                            className={coursePage === 2 ? "course__bottom-page active" : "course__bottom-page"}>
                             Программа курса
                         </div>
                     </div>
                 </div>
                 <div className="course__bottom-about-wrapper">
                     <div className="container">
-                        <CourseProgram />
-                        {/*<CourseReviews />*/}
-                        {/*<CourseAbout />*/}
+                        {coursePage === 0 &&
+                            <CourseAbout />
+                        }
+                        {coursePage === 1 &&
+                            <CourseReviews />
+                        }
+                        {coursePage === 2 &&
+                            <CourseProgram />
+                        }
                     </div>
                 </div>
             </div>

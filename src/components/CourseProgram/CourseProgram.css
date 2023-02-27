@@ -1,3 +1,7 @@
+.course-program__inner {
+    padding-bottom: 20px;
+}
+
 .course-program__top {
     position: relative;
     background: rgba(28, 28, 28, 0.5);
