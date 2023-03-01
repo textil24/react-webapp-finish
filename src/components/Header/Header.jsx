@@ -27,7 +27,7 @@ const Header = () => {
                         to="/domi"
                         onClick={() => setActiveBurger(false)}
                         className="header__logo">
-                        <img className="header__img" src={logo} alt="logo"/>
+                        {/*<img className="header__img" src={logo} alt="logo"/>*/}
                         Domi
                     </Link>
                     {/* End Logo */}

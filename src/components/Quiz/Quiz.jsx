@@ -2,52 +2,176 @@ import React, {useState} from 'react';
 import "./Quiz.css"
 import {Link} from "react-router-dom";
 import QuizResult from "../QuizResult/QuizResult";
+import CountDownTimer from "../../widgets/CountDownTimer/CountDownTimer";
 
-const questions = [
-    {
-        title: "He was elected ___ President many years ago.",
-        variants: ["the", "a", "-", "an"],
-        correct: 0
-    },
-    {
-        title: "He was elected ___ President many years ago.",
-        variants: ["the", "a", "-", "an"],
-        correct: 0
-    },
-    {
-        title: "He was elected ___ President many years ago.",
-        variants: ["the", "a", "-", "an"],
-        correct: 0
-    },
-]
+const card = {
+    id: '1d',
+    quiz: [
+        {
+            id: '2z',
+            typeStep: "radio",
+            question: 'He was elected ___ President many years ago.',
+            answers: [
+                {
+                    id: "1a",
+                    answer: 'the'
+                },
+                {
+                    id: "1b",
+                    answer: 'a'
+                },
+                {
+                    id: "1c",
+                    answer: '-'
+                },
+                {
+                    id: "1d",
+                    answer: 'an'
+                }
+            ],
+            corrects: [
+                {
+                    id: "1a"
+                }
+            ]
+        },
+        {
+            id: '2v',
+            typeStep: "radio",
+            question: 'He was elected ___ President many years ago.',
+            answers: [
+                {
+                    id: "2a",
+                    answer: 'the'
+                },
+                {
+                    id: "2b",
+                    answer: 'a'
+                },
+                {
+                    id: "2c",
+                    answer: '-'
+                },
+                {
+                    id: "2d",
+                    answer: 'an'
+                }
+            ],
+            corrects: [
+                {
+                    id: "2a"
+                }
+            ]
+        },
+        {
+            id: '2n',
+            typeStep: "radio",
+            question: 'He was elected ___ President many years ago.',
+            answers: [
+                {
+                    id: "3a",
+                    answer: 'the'
+                },
+                {
+                    id: "3b",
+                    answer: 'a'
+                },
+                {
+                    id: "3c",
+                    answer: '-'
+                },
+                {
+                    id: "3d",
+                    answer: 'an'
+                }
+            ],
+            corrects: [
+                {
+                    id: "3a"
+                }
+            ]
+        },
+    ]
+}
 
 const Quiz = () => {
 
     const [step, setStep] = useState(0)
     const [correct, setCorrect] = useState(0)
+    const [clickAnswer, setClickAnswer] = useState(null)
+    const [correctAnswer, setCorrectAnswer] = useState(null)
 
-    const percentage = step / questions.length * 100
+    const [isEndTimer, setIsEndTimer] = useState(false)
 
-    const question = questions[step]
+    const quizLength = card.quiz.length
+    const percentage = step / quizLength * 100
 
-    const onClickVariant = (index) => {
-        setStep(step + 1)
-        if (index === question.correct) {
-            setCorrect(correct + 1)
+    const stepData = card.quiz[step]
+
+    const onClickVariant = (answerId) => {
+        setClickAnswer(answerId)
+        setCorrectAnswer(answerId)
+
+        // setTimeout(() => {
+        //     console.log('setTimeOut, Отработал!')
+        //     setCorrectAnswer(answerId)
+        //     setTimeout(() => {
+        //         setStep(step + 1)
+        //         if (answerId === stepData.corrects[0].id) {
+        //             setCorrect(correct + 1)
+        //         }
+        //     }, 3000)
+        // }, 3000)
+    }
+
+    const answerClassName = (answerId) => {
+        if (clickAnswer === answerId) {
+            return "quiz__answer time"
+        } else {
+            return "quiz__answer"
         }
+    }
+
+    const correctClassName = (yourAnswer, correctId) => {
+        if (yourAnswer === correctId) {
+            return "quiz__answer right"
+        } else if (yourAnswer !== correctId) {
+            return "quiz__answer wrong"
+        }
+    }
+
+    const dynamicAnswerClass = (yourAnswer, answerId, correctId) => {
+        console.log(correctId)
+        if (yourAnswer === correctId && yourAnswer === answerId) {
+
+            if (isEndTimer) {
+                return correctClassName(yourAnswer, correctId)
+            } else {
+                return answerClassName(answerId)
+            }
+
+        } else if (yourAnswer !== correctId && yourAnswer === answerId) {
+            if (isEndTimer) {
+                return correctClassName(answerId)
+            } else {
+                return answerClassName(answerId)
+            }
+
+        }
+        return answerClassName(answerId)
     }
 
     return (
         <div className="quiz">
             <div className="container">
 
-                {step !== questions.length
+                {step !== quizLength
                     ? (
                         <div className="quiz__inner">
 
                             <div className="quiz__step">
                                 <div className="quiz__step-top">
-                                    <Link to="/quizzes" className="quiz__step-title-wrapper">
+                                    <Link to="/1" className="quiz__step-title-wrapper">
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"
                                             width="24"
@@ -72,7 +196,10 @@ const Quiz = () => {
 
                             <div className="quiz__time-wrapper">
                                 <div className="quiz__time">
-                                    31
+                                    <CountDownTimer
+                                        seconds={3}
+                                        setIsEndTimer={setIsEndTimer}
+                                    />
                                 </div>
                             </div>
 
@@ -81,22 +208,31 @@ const Quiz = () => {
                                     {step + 1} Вопрос
                                 </div>
                                 <div className="quiz__title">
-                                    {question.title}
+                                    {stepData.question}
                                 </div>
                             </div>
 
                             <div className="quiz__answers">
 
-                                {question.variants.map((variant, index) =>
+                                {stepData.answers.map(obj =>
                                     <div
-                                        onClick={() => onClickVariant(index)}
-                                        className="quiz__answer">
+                                        key={obj.id}
+                                        onClick={() => onClickVariant(obj.id)}
+                                        className={dynamicAnswerClass(correctAnswer, obj.id, stepData.corrects[0].id)}
+                                    >
                                         <div className="quiz__answer-checker"></div>
-                                        {variant}
+                                        {obj.answer}
                                     </div>
                                 )}
 
-
+                                {/*{question.variants.map((variant, index) =>*/}
+                                {/*    <div*/}
+                                {/*        onClick={() => onClickVariant(index)}*/}
+                                {/*        className="quiz__answer">*/}
+                                {/*        <div className="quiz__answer-checker"></div>*/}
+                                {/*        {variant}*/}
+                                {/*    </div>*/}
+                                {/*)}*/}
 
                                 {/*{true &&*/}
                                 {/*    <div className="quiz__answer right">*/}
@@ -127,7 +263,7 @@ const Quiz = () => {
                         </div>
                     )
                     : (
-                        <QuizResult step={step} correct={correct} questions={questions} />
+                        <QuizResult step={step} correct={correct} quizLength={quizLength} />
                     )
                 }
 

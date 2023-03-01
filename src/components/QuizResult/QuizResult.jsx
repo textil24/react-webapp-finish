@@ -2,7 +2,7 @@ import React from 'react';
 import "./QuizResult.css"
 import {Link} from "react-router-dom";
 
-const QuizResult = ({ step, correct, questions }) => {
+const QuizResult = ({ step , correct , quizLength }) => {
     return (
         <div className="quiz-result">
 
@@ -10,7 +10,7 @@ const QuizResult = ({ step, correct, questions }) => {
 
                     <div className="quiz__step">
                         <div className="quiz__step-top">
-                            <Link to="/quizzes" className="quiz__step-title-wrapper">
+                            <Link to="/1" className="quiz__step-title-wrapper">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     width="24"
@@ -29,7 +29,7 @@ const QuizResult = ({ step, correct, questions }) => {
                             </div>
                         </div>
                         <div className="quiz__step-bottom">
-                            {correct === questions.length
+                            {correct === quizLength
                                 ? (
                                     <span style={{backgroundColor: "#34B547"}}></span>
                                 )
@@ -40,7 +40,7 @@ const QuizResult = ({ step, correct, questions }) => {
                         </div>
                     </div>
 
-                    {correct === questions.length
+                    {correct === quizLength
                         ? (
                             <div className="quiz-result__status-wrapper">
                                 <div className="quiz-result__status">
@@ -104,7 +104,7 @@ const QuizResult = ({ step, correct, questions }) => {
                             </div>
                         </div>
 
-                        {correct === questions.length
+                        {correct === quizLength
                             ? (
                                 <div className="quiz-result__item-bottom">
                                     <div className="quiz-result__item-bottom-text">
