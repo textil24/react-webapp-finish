@@ -8,14 +8,42 @@ const card = {
     id: '1d',
     quiz: [
         {
-            id: '2b',
+            id: '2y',
             typeStep: "checkbox",
             question: 'He was elected ___ President many years ago.',
             answers: [ 'the', 'a', '-', 'an' ],
             corrects: [0, 1, '', '']
         },
         {
-            id: '2z',
+            id: '2x',
+            typeStep: "radio",
+            question: 'He was elected ___ President many years ago.',
+            answers: [ 'the', 'a', '-', 'an' ],
+            corrects: [0]
+        },
+        {
+            id: '2y',
+            typeStep: "checkbox",
+            question: 'He was elected ___ President many years ago.',
+            answers: [ 'the', 'a', '-', 'an' ],
+            corrects: [0, 1, '', '']
+        },
+        {
+            id: '2y',
+            typeStep: "checkbox",
+            question: 'He was elected ___ President many years ago.',
+            answers: [ 'the', 'a', '-', 'an' ],
+            corrects: [0, 1, '', '']
+        },
+        {
+            id: '2x',
+            typeStep: "radio",
+            question: 'He was elected ___ President many years ago.',
+            answers: [ 'the', 'a', '-', 'an' ],
+            corrects: [0]
+        },
+        {
+            id: '2x',
             typeStep: "radio",
             question: 'He was elected ___ President many years ago.',
             answers: [ 'the', 'a', '-', 'an' ],
@@ -41,6 +69,7 @@ const card = {
 
 const Quiz = () => {
 
+    // Переход карточки и корректность ответа
     const [step, setStep] = useState(0)
     const [correct, setCorrect] = useState(0)
 
@@ -49,9 +78,12 @@ const Quiz = () => {
 
     // Более одного ответа
     const [clickAnswerList, setClickAnswerList] = useState([])
+    const [initialPlaceAnswerList, setInitialPlaceAnswerList] = useState([])
 
-    // Конец таймера
-    const [isEndTimer, setIsEndTimer] = useState(true)
+    // Настройки таймера
+    const [time, setTime] = useState(5);
+
+    const [isEndTimer, setIsEndTimer] = useState(false)
 
     const quizLength = card.quiz.length
     const percentage = step / quizLength * 100
@@ -106,10 +138,10 @@ const Quiz = () => {
     // ANSWER LIST
 
     useEffect(() => {
-        console.log('Отработал!')
         if (stepData.corrects.length > 1) {
             const nullAnswerList = stepData.corrects.map(() => null)
             setClickAnswerList(nullAnswerList)
+            setInitialPlaceAnswerList(nullAnswerList)
         }
     }, [stepData.corrects])
 
@@ -222,15 +254,17 @@ const Quiz = () => {
 
                             <div className="quiz__time-wrapper">
                                 <div className="quiz__time">
-                                    5
-                                    {/*<CountDownTimer*/}
-                                    {/*    seconds={3}*/}
-                                    {/*    isEndTimer={isEndTimer}*/}
-                                    {/*    setIsEndTimer={setIsEndTimer}*/}
-                                    {/*    time={time}*/}
-                                    {/*    setTime={setTime}*/}
-                                    {/*    isRunning={isRunning}*/}
-                                    {/*/>*/}
+                                    <CountDownTimer
+                                        time={time}
+                                        setTime={setTime}
+                                        setIsEndTimer={setIsEndTimer}
+                                        step={step}
+                                        setStep={setStep}
+                                        initialPlaceAnswerList={initialPlaceAnswerList}
+                                        clickAnswerItem={clickAnswerItem}
+                                        setClickAnswerItem={setClickAnswerItem}
+                                        setClickAnswerList={setClickAnswerList}
+                                    />
                                 </div>
                             </div>
 
@@ -246,7 +280,7 @@ const Quiz = () => {
                             <div className="quiz__answers">
 
                                 {stepData.answers.map((answer, index) =>
-                                    <div key={index}
+                                    <button disabled={isEndTimer} key={index}
                                         onClick={() => {stepData.typeStep === "radio"
                                                     ? onClickAnswerItem(index)
                                                     : onClickAnswerList(index)
@@ -261,7 +295,7 @@ const Quiz = () => {
                                             : <IconAnswerList index={index} correctAnswer={stepData.corrects[index]}/>
                                         }
                                         {answer}
-                                    </div>
+                                    </button>
                                 )}
 
                             </div>

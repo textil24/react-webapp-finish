@@ -1,31 +1,43 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import "./CountDownTimer.css"
 
-const CountDownTimer = ({ seconds, isEndTimer, setIsEndTimer, time, setTime, isRunning }) => {
+const CountDownTimer = (
+    {
+        time,
+        setTime,
+        setIsEndTimer,
+        step,
+        setStep,
+        initialPlaceAnswerList,
+        clickAnswerItem,
+        setClickAnswerItem,
+        setClickAnswerList
+    }) => {
     useEffect(() => {
-        const timer =
-            time > 0 && setInterval(() => setTime(time - 1), 1000);
+        const timer = time > 0 && setInterval(() => setTime(time - 1), 1000);
         return () => clearInterval(timer);
-    }, [isEndTimer, isRunning, time]);
+    }, [time]);
+
+    useEffect(() => {
+        if (time === 0) {
+            setIsEndTimer(true);
+            setTimeout(() => {
+                setIsEndTimer(false)
+                setStep(step + 1)
+                setTime(5)
+                setClickAnswerItem([])
+                setClickAnswerList([])
+            }, 2000)
+            // setTime(5)
+        }
+    }, [time, setIsEndTimer]);
 
     const displayTime = () => {
         const seconds = time % 60;
-        console.log(seconds)
-        // if (!seconds) {
-        //     setIsEndTimer(true)
-        // }
         return seconds;
     };
 
-    const dynamicDisplayTime = () => {
-        if (!displayTime()) {
-            setIsEndTimer(true)
-            return displayTime()
-        }
-        return displayTime()
-    }
-
-    return <div>{dynamicDisplayTime()}</div>;
+    return <div>{displayTime()}</div>;
 };
 
 export default CountDownTimer;

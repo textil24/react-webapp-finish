@@ -11,3 +11,11 @@ body {
     background-color: #1C1C1C;
     font-family: 'Roboto', sans-serif;
 }
+
+button {
+    display: block;
+    border: none;
+    background-color: transparent;
+    color: #FFFFFF;
+    width: 100%;
+}
