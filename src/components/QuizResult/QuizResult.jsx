@@ -29,7 +29,7 @@ const QuizResult = ({ step , correct , quizLength }) => {
                             </div>
                         </div>
                         <div className="quiz__step-bottom">
-                            {correct === quizLength
+                            {correct !== quizLength
                                 ? (
                                     <span style={{backgroundColor: "#34B547"}}></span>
                                 )
@@ -40,7 +40,7 @@ const QuizResult = ({ step , correct , quizLength }) => {
                         </div>
                     </div>
 
-                    {correct === quizLength
+                    {correct !== quizLength
                         ? (
                             <div className="quiz-result__status-wrapper">
                                 <div className="quiz-result__status">
@@ -105,7 +105,7 @@ const QuizResult = ({ step , correct , quizLength }) => {
                             </div>
                         </div>
 
-                        {correct === quizLength
+                        {correct !== quizLength
                             ? (
                                 <div className="quiz-result__item-bottom">
                                     <div className="quiz-result__item-bottom-text">

@@ -8,32 +8,32 @@ const card = {
     id: '1d',
     quiz: [
         {
-            id: '2y',
-            typeStep: "checkbox",
-            question: 'He was elected ___ President many years ago.',
-            answers: [ 'the', 'a', '-', 'an' ],
-            corrects: [0, 1, '', '']
-        },
-        {
             id: '2x',
             typeStep: "radio",
-            question: 'He was elected ___ President many years ago.',
-            answers: [ 'the', 'a', '-', 'an' ],
+            question: 'Как Варламов относиться к велодорожкам?',
+            answers: [ 'положительно', 'отрицательно', '-', 'не знаю' ],
             corrects: [0]
         },
         {
             id: '2y',
             typeStep: "checkbox",
-            question: 'He was elected ___ President many years ago.',
-            answers: [ 'the', 'a', '-', 'an' ],
-            corrects: [0, 1, '', '']
+            question: 'Где располагаются велодорожки?',
+            answers: [ 'тротуары', 'лесопарки и парки', 'на всей проезжей части', 'пешеходная зона и набережная' ],
+            corrects: [0, 1, '', 3]
         },
         {
             id: '2x',
             typeStep: "radio",
-            question: 'He was elected ___ President many years ago.',
-            answers: [ 'the', 'a', '-', 'an' ],
+            question: 'Велодорожки должны быть по всей России?',
+            answers: [ 'Да', 'Нет', '-', 'Не знаю' ],
             corrects: [0]
+        },
+        {
+            id: '2y',
+            typeStep: "checkbox",
+            question: 'Хотел написать еще один вопрос, но было лень...',
+            answers: [ 'ок', 'бывает', 'лан', 'пон' ],
+            corrects: [0, 1, 2, 3]
         }
     ]
 }
