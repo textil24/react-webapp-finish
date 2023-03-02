@@ -8,6 +8,13 @@ const card = {
     id: '1d',
     quiz: [
         {
+            id: '2b',
+            typeStep: "checkbox",
+            question: 'He was elected ___ President many years ago.',
+            answers: [ 'the', 'a', '-', 'an' ],
+            corrects: [0, 1, '', '']
+        },
+        {
             id: '2z',
             typeStep: "radio",
             question: 'He was elected ___ President many years ago.',
@@ -43,7 +50,7 @@ const Quiz = () => {
     // Более одного ответа
     const [clickAnswerList, setClickAnswerList] = useState([])
 
-    // End Timer
+    // Конец таймера
     const [isEndTimer, setIsEndTimer] = useState(false)
 
     const quizLength = card.quiz.length
@@ -71,7 +78,6 @@ const Quiz = () => {
     }
 
     const IconAnswerItem = ({index, correctAnswer}) => {
-        console.log(clickAnswerItem[0], index)
         if (isEndTimer) {
             if (clickAnswerItem[0] === index && clickAnswerItem[0] === correctAnswer) {
                 return (
@@ -139,6 +145,44 @@ const Quiz = () => {
             return "quiz__answer time"
         }
         return "quiz__answer"
+    }
+
+    const IconAnswerList = ({ index, correctAnswer }) => {
+        if (isEndTimer) {
+            if (clickAnswerList[index] === index && clickAnswerItem[0] === correctAnswer) {
+                return (
+                    <svg xmlns="http://www.w3.org/2000/svg" width="19" height="14" viewBox="0 0 19 14" fill="none">
+                        <line x1="7.81206" y1="11.2929" x2="17.8121" y2="1.29289" stroke="white" strokeWidth="2"/>
+                        <line x1="7.81206" y1="11.2929" x2="17.8121" y2="1.29289" stroke="white" strokeWidth="2"/>
+                        <line x1="7.81206" y1="12.7071" x2="1.2 9286" y2="6.1879" stroke="white" strokeWidth="2"/>
+                        <line x1="7.81206" y1="12.7071" x2="1.29286" y2="6.1879" stroke="white" strokeWidth="2"/>
+                    </svg>
+                )
+            } else if (clickAnswerList[index] === index && clickAnswerItem[0] !== correctAnswer) {
+                return (
+                    <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" viewBox="0 0 27 27" fill="none">
+                        <line x1="6.50519" y1="6.50537" x2="19.5156" y2="19.5158" stroke="white" strokeWidth="2.16465"/>
+                        <path d="M6.50525 19.5159L19.5157 6.50546" stroke="white" strokeWidth="2.16465"/>
+                    </svg>
+                )
+            }
+        }
+
+        if (clickAnswerList[index] === index) {
+            return (
+                <div className="quiz__answer-checker checkbox">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="19" height="12" viewBox="0 0 19 14" fill="none">
+                        <line x1="7.81206" y1="11.2929" x2="17.8121" y2="1.29289" stroke="white" strokeWidth="2"/>
+                        <line x1="7.81206" y1="11.2929" x2="17.8121" y2="1.29289" stroke="white" strokeWidth="2"/>
+                        <line x1="7.81206" y1="12.7071" x2="1.2 9286" y2="6.1879" stroke="white" strokeWidth="2"/>
+                        <line x1="7.81206" y1="12.7071" x2="1.29286" y2="6.1879" stroke="white" strokeWidth="2"/>
+                    </svg>
+                </div>
+            )
+        }
+
+        return <div className="quiz__answer-checker checkbox"></div>
+
     }
 
     // END ANSWER LIST
@@ -214,7 +258,7 @@ const Quiz = () => {
                                             }>
                                         {stepData.typeStep === "radio"
                                             ? <IconAnswerItem index={index} correctAnswer={stepData.corrects[0]}/>
-                                            : ""
+                                            : <IconAnswerList index={index} correctAnswer={stepData.corrects[index]}/>
                                         }
                                         {answer}
                                     </div>

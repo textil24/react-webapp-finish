@@ -75,6 +75,7 @@
 .quiz__content {
     margin-bottom: 11px;
 }
+
 .quiz__question {
     font-style: normal;
     font-weight: 700;
@@ -84,6 +85,7 @@
     color: #D1D1D6;
     margin-bottom: 5px;
 }
+
 .quiz__title {
     font-style: normal;
     font-weight: 700;
@@ -101,6 +103,14 @@
     border: 2px solid #212632;
     border-radius: 50px;
     margin-right: 15px;
+}
+
+.quiz__answer-checker.checkbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 0;
 }
 
 .quiz__answer {
