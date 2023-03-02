@@ -11,12 +11,17 @@ const CountDownTimer = (
         initialPlaceAnswerList,
         clickAnswerItem,
         setClickAnswerItem,
-        setClickAnswerList
+        setClickAnswerList,
+        isRunning,
+        setIsRunning
     }) => {
     useEffect(() => {
-        const timer = time > 0 && setInterval(() => setTime(time - 1), 1000);
+        let timer;
+        if (isRunning && time > 0) {
+            timer = setInterval(() => setTime(time - 1), 1000);
+        }
         return () => clearInterval(timer);
-    }, [time]);
+    }, [isRunning, time]);
 
     useEffect(() => {
         if (time === 0) {
@@ -27,10 +32,21 @@ const CountDownTimer = (
                 setTime(5)
                 setClickAnswerItem([])
                 setClickAnswerList([])
-            }, 2000)
+            }, 1000)
             // setTime(5)
         }
-    }, [time, setIsEndTimer]);
+        if (!isRunning) {
+            setIsEndTimer(true);
+            setTimeout(() => {
+                setIsEndTimer(false)
+                setStep(step + 1)
+                setTime(5)
+                setIsRunning(true)
+                setClickAnswerItem([])
+                setClickAnswerList([])
+            }, 1000)
+        }
+    }, [isRunning, time, setIsEndTimer]);
 
     const displayTime = () => {
         const seconds = time % 60;
