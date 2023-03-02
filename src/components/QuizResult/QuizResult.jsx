@@ -25,7 +25,7 @@ const QuizResult = ({ step , correct , quizLength }) => {
                                 </div>
                             </Link>
                             <div className="quiz__step-page">
-                                {step}/3
+                                {step}/{quizLength}
                             </div>
                         </div>
                         <div className="quiz__step-bottom">
@@ -83,7 +83,7 @@ const QuizResult = ({ step , correct , quizLength }) => {
                                     Время:
                                 </div>
                                 <div className="quiz-result__item-top-el-numbers">
-                                    00:15
+                                    00:40
                                 </div>
                             </div>
                             <div className="quiz-result__item-top-el">
@@ -91,7 +91,8 @@ const QuizResult = ({ step , correct , quizLength }) => {
                                     Правильных ответов:
                                 </div>
                                 <div className="quiz-result__item-top-el-numbers">
-                                    {correct}
+                                    {/*{correct}*/}
+                                    Dev...
                                 </div>
                             </div>
                             <div className="quiz-result__item-top-el">
@@ -99,7 +100,7 @@ const QuizResult = ({ step , correct , quizLength }) => {
                                     Неправильных ответов:
                                 </div>
                                 <div className="quiz-result__item-top-el-numbers">
-                                    3
+                                    Dev...
                                 </div>
                             </div>
                         </div>

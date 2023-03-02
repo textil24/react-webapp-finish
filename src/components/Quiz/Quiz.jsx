@@ -29,40 +29,12 @@ const card = {
             corrects: [0, 1, '', '']
         },
         {
-            id: '2y',
-            typeStep: "checkbox",
-            question: 'He was elected ___ President many years ago.',
-            answers: [ 'the', 'a', '-', 'an' ],
-            corrects: [0, 1, '', '']
-        },
-        {
             id: '2x',
             typeStep: "radio",
             question: 'He was elected ___ President many years ago.',
             answers: [ 'the', 'a', '-', 'an' ],
             corrects: [0]
-        },
-        {
-            id: '2x',
-            typeStep: "radio",
-            question: 'He was elected ___ President many years ago.',
-            answers: [ 'the', 'a', '-', 'an' ],
-            corrects: [0]
-        },
-        {
-            id: '2y',
-            typeStep: "checkbox",
-            question: 'He was elected ___ President many years ago.',
-            answers: [ 'the', 'a', '-', 'an' ],
-            corrects: [0, 1, '', '']
-        },
-        {
-            id: '2x',
-            typeStep: "radio",
-            question: 'He was elected ___ President many years ago.',
-            answers: [ 'the', 'a', '-', 'an' ],
-            corrects: [0]
-        },
+        }
     ]
 }
 
@@ -94,6 +66,9 @@ const Quiz = () => {
 
     const onClickAnswerItem = (index) => {
         setClickAnswerItem([index])
+        if (index === clickAnswerItem[0]) {
+            setCorrect(correct + 1)
+        }
     }
 
     const styleAnswerItem = (index, correct) => {
@@ -138,12 +113,12 @@ const Quiz = () => {
     // ANSWER LIST
 
     useEffect(() => {
-        if (stepData.corrects.length > 1) {
-            const nullAnswerList = stepData.corrects.map(() => null)
-            setClickAnswerList(nullAnswerList)
-            setInitialPlaceAnswerList(nullAnswerList)
+        if (stepData && stepData.corrects && stepData.corrects.length > 1) {
+            const nullAnswerList = stepData.corrects.map(() => null);
+            setClickAnswerList(nullAnswerList);
+            setInitialPlaceAnswerList(nullAnswerList);
         }
-    }, [stepData.corrects])
+    }, [stepData]);
 
     const onClickAnswerList = (index) => {
         if (clickAnswerList[index] === null) {
@@ -244,7 +219,7 @@ const Quiz = () => {
                                         </div>
                                     </Link>
                                     <div className="quiz__step-page">
-                                        {step + 1}/3
+                                        {step + 1}/{quizLength}
                                     </div>
                                 </div>
                                 <div className="quiz__step-bottom">
@@ -303,8 +278,11 @@ const Quiz = () => {
                         </div>
                     )
                     : (
-                        <div>end</div>
-                        // <QuizResult step={step} correct={correct} quizLength={quizLength} />
+                        <QuizResult
+                            step={step}
+                            correct={correct}
+                            quizLength={quizLength}
+                        />
                     )
                 }
 
