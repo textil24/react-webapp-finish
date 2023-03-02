@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useMemo, useState} from 'react';
 import "./Quiz.css"
 import {Link} from "react-router-dom";
 import QuizResult from "../QuizResult/QuizResult";
@@ -19,7 +19,7 @@ const card = {
             typeStep: "checkbox",
             question: 'He was elected ___ President many years ago.',
             answers: [ 'the', 'a', '-', 'an' ],
-            corrects: [0, 1]
+            corrects: [0, 1, '', '']
         },
         {
             id: '2x',
@@ -31,15 +31,20 @@ const card = {
     ]
 }
 
+
 const Quiz = () => {
 
     const [step, setStep] = useState(0)
     const [correct, setCorrect] = useState(0)
+
+    // Один ответ
     const [clickAnswerItem, setClickAnswerItem] = useState([null])
-    const [clickAnswerList, setClickAnswerList] = useState([0, 1])
+
+    // Более одного ответа
+    const [clickAnswerList, setClickAnswerList] = useState([])
 
     // End Timer
-    const [isEndTimer, setIsEndTimer] = useState(true)
+    const [isEndTimer, setIsEndTimer] = useState(false)
 
     const quizLength = card.quiz.length
     const percentage = step / quizLength * 100
@@ -65,35 +70,75 @@ const Quiz = () => {
         return "quiz__answer"
     }
 
+    const IconAnswerItem = ({index, correctAnswer}) => {
+        console.log(clickAnswerItem[0], index)
+        if (isEndTimer) {
+            if (clickAnswerItem[0] === index && clickAnswerItem[0] === correctAnswer) {
+                return (
+                    <svg xmlns="http://www.w3.org/2000/svg" width="19" height="14" viewBox="0 0 19 14" fill="none">
+                        <line x1="7.81206" y1="11.2929" x2="17.8121" y2="1.29289" stroke="white" strokeWidth="2"/>
+                        <line x1="7.81206" y1="11.2929" x2="17.8121" y2="1.29289" stroke="white" strokeWidth="2"/>
+                        <line x1="7.81206" y1="12.7071" x2="1.2 9286" y2="6.1879" stroke="white" strokeWidth="2"/>
+                        <line x1="7.81206" y1="12.7071" x2="1.29286" y2="6.1879" stroke="white" strokeWidth="2"/>
+                    </svg>
+                )
+            } else if (clickAnswerItem[0] === index && clickAnswerItem[0] !== correctAnswer) {
+                return (
+                    <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" viewBox="0 0 27 27" fill="none">
+                        <line x1="6.50519" y1="6.50537" x2="19.5156" y2="19.5158" stroke="white" strokeWidth="2.16465"/>
+                        <path d="M6.50525 19.5159L19.5157 6.50546" stroke="white" strokeWidth="2.16465"/>
+                    </svg>
+                )
+            }
+        }
+
+        return <div className="quiz__answer-checker"></div>
+    }
+
     // END ANSWER ITEM
 
     // ANSWER LIST
 
+    useEffect(() => {
+        console.log('Отработал!')
+        if (stepData.corrects.length > 1) {
+            const nullAnswerList = stepData.corrects.map(() => null)
+            setClickAnswerList(nullAnswerList)
+        }
+    }, [stepData.corrects])
+
     const onClickAnswerList = (index) => {
-        // console.log(clickAnswerList)
-        // setClickAnswerList(clickAnswerList => [...clickAnswerList, index])
+        if (clickAnswerList[index] === null) {
+            setClickAnswerList(
+                [
+                    ...clickAnswerList.slice(0, index),
+                    index,
+                    ...clickAnswerList.slice(index + 1)
+                ]
+            )
+        } else {
+            setClickAnswerList(
+                [
+                    ...clickAnswerList.slice(0, index),
+                    null,
+                    ...clickAnswerList.slice(index + 1)
+                ]
+            )
+        }
     }
 
     const styleAnswerList = (index, correct) => {
-            // sort <3
-            console.log(clickAnswerList[index], correct)
+
+        if (clickAnswerList[index] === index) {
             if (isEndTimer) {
                 if (clickAnswerList[index] === correct) {
                     return "quiz__answer right"
                 }
                 return "quiz__answer wrong"
             }
-
-        // if (clickAnswerItem[0] === index) {
-        //     if (isEndTimer) {
-        //         if (clickAnswerItem[0] === correct) {
-        //             return "quiz__answer right"
-        //         }
-        //         return "quiz__answer wrong"
-        //     }
-        //     return "quiz__answer time"
-        // }
-        // return "quiz__answer"
+            return "quiz__answer time"
+        }
+        return "quiz__answer"
     }
 
     // END ANSWER LIST
@@ -157,13 +202,20 @@ const Quiz = () => {
                             <div className="quiz__answers">
 
                                 {stepData.answers.map((answer, index) =>
-                                    <div
-                                        key={index}
-                                        onClick={() => onClickAnswerList(index)}
-                                        className={
-                                            styleAnswerList(index, stepData.corrects[index])
-                                        // styleAnswerList(index, stepData.corrects[index])
-                                    }>
+                                    <div key={index}
+                                        onClick={() => {stepData.typeStep === "radio"
+                                                    ? onClickAnswerItem(index)
+                                                    : onClickAnswerList(index)
+                                                }
+                                            }
+                                        className={stepData.typeStep === "radio"
+                                                ? styleAnswerItem(index, stepData.corrects[index])
+                                                : styleAnswerList(index, stepData.corrects[index])
+                                            }>
+                                        {stepData.typeStep === "radio"
+                                            ? <IconAnswerItem index={index} correctAnswer={stepData.corrects[0]}/>
+                                            : ""
+                                        }
                                         {answer}
                                     </div>
                                 )}
