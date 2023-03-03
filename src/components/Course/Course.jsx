@@ -4,15 +4,23 @@ import Channel from "../Channel/Channel";
 import CourseAbout from "../CourseAbout/CourseAbout";
 import CourseReviews from "../CourseReviews/CourseReviews";
 import CourseProgram from "../CourseProgram/CourseProgram";
+import ButtonCategory from "../../UI/ButtonCategory/ButtonCategory";
+
+const buttons = [
+    "О курсе",
+    "Отзывы",
+    "Программа курса"
+]
 
 const Course = () => {
 
     const [coursePage, setCoursePage] = useState(0)
+    const [clickButton, setClickButton] = useState(0)
 
     return (
         <div className="course">
-            <div className="container">
 
+            <div className="container">
 
                 <div className="course__top">
                     <div className="course__top-title">
@@ -81,25 +89,21 @@ const Course = () => {
             <div className="course__bottom">
                 <div className="container">
                     <div className="course__bottom-pages">
-                        <div
-                            onClick={() => setCoursePage(0)}
-                            className={coursePage === 0 ? "course__bottom-page active" : "course__bottom-page"}>
-                            О курсе
-                        </div>
-                        <div
-                            onClick={() => setCoursePage(1)}
-                            className={coursePage === 1 ? "course__bottom-page active" : "course__bottom-page"}>
-                            Отзывы
-                        </div>
-                        <div
-                            onClick={() => setCoursePage(2)}
-                            className={coursePage === 2 ? "course__bottom-page active" : "course__bottom-page"}>
-                            Программа курса
-                        </div>
+                        {buttons.map((btn, index) =>
+                            <ButtonCategory
+                                onClick={() => {
+                                    setClickButton(index)
+                                    setCoursePage(index)
+                                }
+                            }
+                                active={clickButton === index ? "active" : ""}>
+                                {btn}
+                            </ButtonCategory>
+                        )}
                     </div>
                 </div>
                 <div className="course__bottom-about-wrapper">
-                    <div className="container">
+
                         {coursePage === 0 &&
                             <CourseAbout />
                         }
@@ -109,7 +113,7 @@ const Course = () => {
                         {coursePage === 2 &&
                             <CourseProgram />
                         }
-                    </div>
+
                 </div>
             </div>
 
