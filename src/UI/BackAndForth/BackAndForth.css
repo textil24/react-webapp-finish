@@ -1,0 +1,23 @@
+.back-and-forth {
+    padding: 16px 0;
+    background: #2D323D;
+}
+
+.back-and-forth__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #2D323D;
+}
+
+.back-and-forth__item {
+    display: flex;
+    align-items: center;
+
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 18px;
+
+    cursor: pointer;
+}

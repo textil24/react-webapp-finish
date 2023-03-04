@@ -1,12 +1,10 @@
 import React from 'react';
-import Domi from "../../components/Domi/Domi";
-
+import Profile from "../../components/Profile/Profile";
 
 const HomePage = () => {
     return (
         <>
-            <Domi />
-            {/*<Study />*/}
+            <Profile />
         </>
     );
 };

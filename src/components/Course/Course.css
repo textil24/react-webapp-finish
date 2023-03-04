@@ -11,7 +11,7 @@
 
     text-align: center;
     width: 100%;
-    max-width: 287px;
+    max-width: 250px;
     margin: 0 auto;
 }
 .course__top-list {
@@ -22,6 +22,9 @@
     max-width: 205px;
     margin: 18px auto;
 
+}
+.course__top-list.price {
+    max-width: 287px;
 }
 .course__top-item {
     font-style: normal;
@@ -50,7 +53,11 @@
     cursor: pointer;
 }
 
-
+.course__top-button-name {
+    display: block;
+    color: black;
+    text-decoration: none;
+}
 
 .course__bottom {
     background: #2D323D;

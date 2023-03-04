@@ -13,6 +13,10 @@
     margin-right: 8px;
 }
 
+.button-category:last-child {
+    margin-right: 0;
+}
+
 .button-category.active {
     position: relative;
 }

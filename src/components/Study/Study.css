@@ -45,82 +45,8 @@
     background-color: #FFFFFF;
 }
 
-.study__item {
-    display: block;
-    text-decoration: none;
-    color: #FFFFFF;
-    background: #212632;
-    border-radius: 15px;
-    margin-bottom: 12px;
-
-    cursor: pointer;
+.study__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px 1fr));
 }
 
-.study__top {
-    padding: 25px 16px 0 16px;
-}
-
-.study__img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-
-    border-radius: 15px;
-}
-
-.study__name {
-    /*font-family: 'Inter';*/
-    font-style: normal;
-    font-weight: 700;
-    font-size: 15px;
-    line-height: 18px;
-
-    color: #D1D1D6;
-
-    margin: 8px 0;
-}
-
-.study__description {
-    /*font-family: 'Inter';*/
-    font-style: normal;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 19px;
-
-    margin-bottom: 9px;
-}
-
-.study__bottom {
-    border-top: 1px solid rgba(209, 209, 214, 0.2);
-
-    display: flex;
-    justify-content: space-between;
-
-    padding: 7px 16px;
-}
-
-.study__bottom-exp {
-    /*font-family: 'Inter';*/
-    font-style: normal;
-    font-weight: 700;
-    font-size: 20px;
-    line-height: 24px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-
-}
-
-.study__bottom-exp.lightblue {
-    margin-right: 5px;
-    color: #5186EF;
-}
-
-
-.study__bottom-content {
-    /*font-family: 'Inter';*/
-    font-style: normal;
-    font-weight: 700;
-    font-size: 20px;
-    line-height: 24px;
-}

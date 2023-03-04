@@ -6,11 +6,25 @@ import {Link} from "react-router-dom";
 import ButtonCategory from "../../UI/ButtonCategory/ButtonCategory";
 
 import puzzle from "../../assets/puzzle.png"
+import CardItem from "../../UI/CardItem/CardItem";
+import ContinueCardItem from "../../UI/ContinueCardItem/ContinueCardItem";
+import CardList from "../../UI/CardList/CardList";
 
 const cards = [
     {
+        isBuy: true,
+        to: "/course/1",
+        src: "https://oinfo.ru/img/2018/12/Il-ja-Varlamov.jpg",
+        type: "Курсы",
+        name: "Курс",
+        description: "Тест по английскому языку Present Simple Passive",
+        exp: "+1500",
+        content: <ContinueCardItem />
+    },
+    {
+        isBuy: true,
         to: "/quiz",
-        scr: "https://oinfo.ru/img/2018/12/Il-ja-Varlamov.jpg",
+        src: "https://oinfo.ru/img/2018/12/Il-ja-Varlamov.jpg",
         type: "Квизы",
         name: "Квиз",
         description: "Тест по английскому языку Present Simple Passive",
@@ -18,8 +32,9 @@ const cards = [
         content: "5 вопросов"
     },
     {
-        to: "/course",
-        scr: "https://oinfo.ru/img/2018/12/Il-ja-Varlamov.jpg",
+        isBuy: false,
+        to: "/course/2",
+        src: "https://oinfo.ru/img/2018/12/Il-ja-Varlamov.jpg",
         type: "Курсы",
         name: "Курс",
         description: "Тест по английскому языку Present Simple Passive",
@@ -27,8 +42,9 @@ const cards = [
         content: "399 $"
     },
     {
+        isBuy: true,
         to: "/quiz",
-        scr: "https://oinfo.ru/img/2018/12/Il-ja-Varlamov.jpg",
+        src: "https://oinfo.ru/img/2018/12/Il-ja-Varlamov.jpg",
         type: "Квизы",
         name: "Квиз",
         description: "Тест по английскому языку Present Simple Passive",
@@ -102,38 +118,20 @@ const Study = ({ title, sort, category }) => {
                         )}
                     </div>
 
-                    <div className="study__list">
-
+                    <CardList>
                         {cardsCurrent.map((card, index) =>
-
-                            <Link key={index} to={card.to} className="study__item">
-                                <div className="study__top">
-                                    <img className="study__img"
-                                         src={card.scr}
-                                         alt="image"/>
-                                    <div className="study__name">
-                                        {card.name}
-                                    </div>
-                                    <div className="study__description">
-                                        {card.description}
-                                    </div>
-                                </div>
-                                <div className="study__bottom">
-                                    <div className="study__bottom-exp">
-                                        <span className="study__bottom-exp lightblue">{card.exp}</span>
-                                        XP
-                                    </div>
-                                    <div className="study__bottom-content">
-                                        {card.content}
-                                    </div>
-                                </div>
-                            </Link>
-
+                            <CardItem
+                                key={index}
+                                isBuy={card.isBuy}
+                                to={card.to}
+                                src={card.src}
+                                name={card.name}
+                                description={card.description}
+                                exp={card.exp}
+                                content={card.content}
+                            />
                         )}
-
-
-
-                    </div>
+                    </CardList>
 
                 </div>
             </div>

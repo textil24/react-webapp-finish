@@ -1,0 +1,57 @@
+.course-program-book__content {
+    margin-bottom: 20px;
+}
+
+.course-program-book__title {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+
+    margin-bottom: 15px;
+}
+.course-program-book__text {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+
+    margin-bottom: 20px;
+}
+.course-program-book__img {
+    width: 100%;
+    max-width: 350px;
+    height: 192px;
+
+    border-radius: 15px;
+}
+
+.course-program-book__teacher {
+    display: flex;
+    align-items: center;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+}
+
+.course-program-book__wrapper {
+    margin-bottom: 20px
+}
+
+.course-program-book__subtitle {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 18px;
+
+    margin-bottom: 7px;
+}
+
+.course-program-book__time {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+}

@@ -25,7 +25,8 @@
 }
 
 .header__menu-item {
-    display: block;
+    display: flex;
+    align-items: center;
     text-decoration: none;
     font-style: normal;
     font-weight: 700;
@@ -37,6 +38,11 @@
     cursor: pointer;
 }
 
+.header__menu-item-img {
+    width: 36px;
+    margin-right: 5px;
+}
+
 .header__logo {
     text-decoration: none;
     font-style: normal;
@@ -45,7 +51,6 @@
     line-height: 37px;
 
     color: #FFFFFF;
-    cursor: pointer;
 }
 
 .header__img {

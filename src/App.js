@@ -9,6 +9,7 @@ import {Route, Routes} from "react-router-dom";
 import QuizAndCourse from "./pages/QuizAndCourse/QuizAndCourse";
 import Course from "./components/Course/Course";
 import Quiz from "./components/Quiz/Quiz";
+import CourseProgramBook from "./UI/CourseProgramBook/CourseProgramBook";
 
 
 const tg = window.Telegram.WebApp
@@ -44,10 +45,13 @@ function App() {
                         category="Курсы"
                     />
                 } />
-                <Route path="/domi" element={<HomePage />} />
-                <Route path="/course" element={<Course />} />
+                <Route path="/profile" element={<HomePage />} />
+                <Route path="/course/:id" element={<Course />} />
                 <Route path="/quiz" element={<Quiz />} />
                 <Route path="/leaderboards" element={<LeaderboardPage />} />
+
+                <Route path="/course_program_book" element={<CourseProgramBook />}/>
+
             </Routes>
 
         </div>

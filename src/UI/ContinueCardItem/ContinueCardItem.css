@@ -1,0 +1,8 @@
+.continue-card-item {
+    display: flex;
+    align-items: center;
+}
+
+.continue-card-item__text {
+    margin-right: 5px;
+}
