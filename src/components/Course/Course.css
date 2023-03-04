@@ -59,7 +59,6 @@
 
 .course__bottom-about-wrapper {
     background: #212632;
-    border-radius: 0 0 15px 15px;
 }
 
 .course__bottom-pages {
@@ -109,7 +108,8 @@
 }
 
 .course__bottom-about-img {
-    width: 350px;
+    width: 100%;
+    max-width: 350px;
     height: 192px;
     border-radius: 15px;
 

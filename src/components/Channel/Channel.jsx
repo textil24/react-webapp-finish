@@ -1,10 +1,10 @@
 import React from 'react';
 import "./Channel.css"
 
-const Channel = ({remove}) => {
+const Channel = () => {
     return (
         <div className="channel">
-            <div className={`container ${remove}`}>
+
                 <div className="channel__inner">
 
                     <div className="channel__item">
@@ -23,7 +23,7 @@ const Channel = ({remove}) => {
                     </div>
 
                 </div>
-            </div>
+
         </div>
     );
 };
