@@ -1,4 +1,9 @@
 .back-and-forth {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+
     padding: 16px 0;
     background: #2D323D;
 }
@@ -13,6 +18,8 @@
 .back-and-forth__item {
     display: flex;
     align-items: center;
+    color: white;
+    text-decoration: none;
 
     font-style: normal;
     font-weight: 700;

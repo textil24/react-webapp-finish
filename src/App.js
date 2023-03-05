@@ -10,6 +10,7 @@ import QuizAndCourse from "./pages/QuizAndCourse/QuizAndCourse";
 import Course from "./components/Course/Course";
 import Quiz from "./components/Quiz/Quiz";
 import CourseProgramBook from "./UI/CourseProgramBook/CourseProgramBook";
+import CourseProgramPlay from "./UI/CourseProgramPlay/CourseProgramPlay";
 
 
 const tg = window.Telegram.WebApp
@@ -51,6 +52,8 @@ function App() {
                 <Route path="/leaderboards" element={<LeaderboardPage />} />
 
                 <Route path="/course_program_book" element={<CourseProgramBook />}/>
+                <Route path="/course_program_play" element={<CourseProgramPlay />}/>
+
 
             </Routes>
 

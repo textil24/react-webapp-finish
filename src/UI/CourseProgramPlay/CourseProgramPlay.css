@@ -1,0 +1,27 @@
+.course-program-play__content {
+    margin-bottom: 20px;
+}
+
+.course-program-play__title {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+
+    margin: 15px 0;
+}
+.course-program-play__text {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+
+    margin-bottom: 20px;
+}
+.course-program-play__img {
+    width: 100%;
+    max-width: 350px;
+    height: 192px;
+
+    border-radius: 15px;
+}
